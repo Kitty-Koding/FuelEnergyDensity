@@ -16,11 +16,11 @@
     </style>
 </head>
 <body>
-    <h1>Hello World</h1>
     <script>
         const margin = {left:10,right:10,top:10,bottom:10};
         const w = 1000;
         const h = 600;
+        const barpadding = 1;
 
         const svg = d3.select("body").append("svg").attr("width",w).attr("height",h);
 
@@ -32,8 +32,15 @@
             };
         };
 
-        d3.csv("FuelData.csv",rowconvert,function(data){
-            d3.select("body").append("p").text("Data Loaded! :"+data);
+        d3.csv("FuelData.csv",rowconvert,function(dataset){
+            svg.selectAll("rect")
+                .data(dataset)
+                .attr("x",function(d,i){
+                    return i*(20+barpadding);
+                })
+                .attr("y",0)
+                .attr("width",20)
+                .attr("height", 100)
         });
 
     </script>
