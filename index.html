@@ -14,7 +14,12 @@
 <body>
     <h1>Hello World</h1>
     <script>
-        d3.select("body").append("p").text("D3 Loaded Successfully");
+        const margin = {left:10,right:10,top:10,bottom:10};
+        const w = 1000;
+        const h = 1000;
+
+        var svg = d3.select("body").append("svg").attr("width",w).attr("height",h);
+        svg.append("circle").attr("cx",10).attr("cy",100).attr("r",50)
     </script>
 </body>
 </html>
