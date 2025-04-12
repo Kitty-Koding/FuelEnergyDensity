@@ -45,6 +45,7 @@
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
                 .attr("height", function(d){
                     return d;
+                    d3.select("body").append("p").text(d)
                 })
         });
 
