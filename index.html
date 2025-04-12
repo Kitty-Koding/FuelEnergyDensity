@@ -10,7 +10,6 @@
             background-color: antiquewhite;
         }
         svg{
-            background-color: white;
             border:solid black 3px;
         }
     </style>
@@ -35,6 +34,8 @@
         d3.csv("FuelData.csv",rowconvert,function(dataset){
             svg.selectAll("rect")
                 .data(dataset)
+                .enter()
+                .append("rect")
                 .attr("x",function(d,i){
                     return i*(20+barpadding);
                 })
