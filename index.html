@@ -19,7 +19,19 @@
         const h = 1000;
 
         const svg = d3.select("body").append("svg").attr("width",w).attr("height",h);
-        svg.append("circle").attr("cx",10).attr("cy",100).attr("r",50)
+
+        const rowconvert = function(d){
+            return {
+                Fuel: d.Fuel,
+                Energy: parseFloat(d.Energy),
+
+            };
+        };
+
+        d3.csv("FuelData.csv",rowconvert,function(data){
+            d3.select("body").append("p").text("Data Loaded! :"+data);
+        });
+
     </script>
 </body>
 </html>
