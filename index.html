@@ -10,6 +10,7 @@
             background-color: antiquewhite;
         }
         svg{
+            background-color: white;
             border:solid black 3px;
         }
     </style>
@@ -39,9 +40,13 @@
                 .attr("x",function(d,i){
                     return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
                 })
-                .attr("y",0)
+                .attr("y",function(d){
+                    return margin.top+(h-(margin.top+margin.bottom)) - d;
+                })
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
-                .attr("height", 100)
+                .attr("height", function(d){
+                    return d;
+                })
         });
 
     </script>
