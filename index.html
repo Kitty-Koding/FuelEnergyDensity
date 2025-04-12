@@ -33,7 +33,7 @@
         };
 
         d3.csv("FuelData.csv",rowconvert,function(dataset){
-            const yScale = d3.scaleLinear().domain([0,d3.min(dataset, function(d){
+            const yScale = d3.scaleLinear().domain([0,d3.max(dataset, function(d){
                 return d.Energy;
             })]).range([0,(h-(margin.top+margin.bottom))])
             svg.selectAll("rect")
@@ -44,7 +44,7 @@
                     return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
                 })
                 .attr("y",function(d){
-                    return yScale(d.Energy);
+                    return h - yScale(d.Energy);
                 })
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
                 .attr("height", function(d){
