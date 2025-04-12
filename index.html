@@ -37,10 +37,10 @@
                 .enter()
                 .append("rect")
                 .attr("x",function(d,i){
-                    return i*(20+barpadding);
+                    return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
                 })
                 .attr("y",0)
-                .attr("width",20)
+                .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
                 .attr("height", 100)
         });
 
