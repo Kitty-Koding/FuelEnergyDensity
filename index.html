@@ -40,7 +40,7 @@
                     return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
                 })
                 .attr("y",function(d){
-                    return margin.bottom+((h-(margin.top+margin.bottom)) - d);
+                    return h - d);
                 })
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
                 .attr("height", function(d){
