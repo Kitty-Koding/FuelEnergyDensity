@@ -44,7 +44,7 @@
                     return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
                 })
                 .attr("y",function(d){
-                    return (h-(margin.left+margin.right))-yScale(d.Energy);
+                    return yScale(d.Energy);
                 })
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
                 .attr("height", function(d){
