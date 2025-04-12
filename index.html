@@ -35,7 +35,7 @@
         d3.csv("FuelData.csv",rowconvert,function(dataset){
             const yScale = d3.scaleLinear().domain([0,d3.max(dataset, function(d){
                 return d.Energy;
-            })]).range([0,(h-(margin.left+margin.right))])
+            })]).range([0,h])
             svg.selectAll("rect")
                 .data(dataset)
                 .enter()
