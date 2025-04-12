@@ -7,7 +7,11 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
         body{
-            background-color: blue;
+            background-color: antiquewhite;
+        }
+        svg{
+            background-color: white;
+            border:solid black 3px;
         }
     </style>
 </head>
@@ -16,7 +20,7 @@
     <script>
         const margin = {left:10,right:10,top:10,bottom:10};
         const w = 1000;
-        const h = 1000;
+        const h = 600;
 
         const svg = d3.select("body").append("svg").attr("width",w).attr("height",h);
 
