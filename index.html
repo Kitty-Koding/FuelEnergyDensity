@@ -32,12 +32,14 @@
         };
 
         d3.csv("FuelData.csv",rowconvert,function(dataset){
+
             svg.selectAll("rect")
                 .data(dataset)
                 .enter()
                 .append("rect")
                 .attr("x",function(d,i){
                     return margin.left + (i*((w-(margin.left+margin.right))/dataset.length));
+                    d3.select("body").append("p").text(d+","+i);
                 })
                 .attr("y",0)
                 .attr("width",(w-(margin.left+margin.right))/dataset.length - barpadding)
