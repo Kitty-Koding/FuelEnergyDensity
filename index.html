@@ -35,7 +35,7 @@
         d3.csv("FuelData.csv",rowconvert,function(dataset){
             const yScale = d3.scaleLinear().domain([0,d3.max(dataset, function(d){
                 return d.Energy;
-            })]).range([0,h])
+            })]).range([0,(h-(margin.left+margin.right))])
             svg.selectAll("rect")
                 .data(dataset)
                 .enter()
@@ -50,6 +50,10 @@
                 .attr("height", function(d){
                     return yScale(d.Energy);
                 })
+            
+            const yaxis = d3.axisLeft().scale(yScale).ticks(10)
+
+            svg.append("g").attr("class","axis").attr("transform","translate("+margin.left+",0)").call(yaxis)
         });
 
     </script>
